@@ -11,10 +11,10 @@
     <!-- 九宫格开始 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-        <a href="#">
+        <router-link to="/home/newslist">
           <img src="../../images/menu1.png" alt="">
           <div class="mui-media-body">新闻资讯</div>
-        </a>
+        </router-link>
       </li>
       <li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
         <a href="#">
@@ -66,13 +66,13 @@ export default {
   methods: {
     getLunbotu() {
       this.$http
-        .get("http://www.liulongbin.top:3005/api/getlunbo")
+        .get("api/getlunbo")
         .then(result => {
           //console.log(result.body);
           if (result.body.status === 0) {
             //请求数据成功
             this.lunbotuList = result.body.message;
-            Toast("请求数据成功");
+            //Toast("请求数据成功");
           } else {
             //请求数据失败
             Toast("请求数据失败");
