@@ -2,8 +2,8 @@
     <div class="cmt-container">
         <h3>发表评论</h3>
         <hr>
-        <textarea placeholder="请输入要评论的内容（最大数字120）" maxlength="120"></textarea>
-        <mt-button type="primary" size="large">发表评论</mt-button>
+        <textarea placeholder="请输入要评论的内容（最大数字120）" maxlength="120" v-model="msg"></textarea>
+        <mt-button type="primary" size="large" @click="postComment">发表评论</mt-button>
         <div class="cmt-list">
             <div class="cmt-item" v-for="(item,i) in comments" :key=item.add>
                 <div class="cmt-title">
@@ -22,7 +22,10 @@ export default {
         return {
             //默认页码数为1
             pageIndex: 1,
-            comments: []
+            //所有的评论数据
+            comments: [],
+            //评论输入的内容
+            msg:''
         };
     },
     created(){
@@ -46,6 +49,33 @@ export default {
         getMore(){
             this.pageIndex++;
             this.getComments();
+        },
+        postComment(){
+            //需要获取的评论的数据进行校验
+            if(this.msg.trim().length === 0){
+                //return的作用是返回return后的语句后不再执行后面的代码
+                Toast('评论不能为空！');
+                return; 
+            }
+
+            //参数1:请求的url地址
+            //参数2:提交给服务器的数据对象{content:this.msg}
+            //参数3:定义提交时表单中的数据格式{emulateJSON:true}。因为全局配置了参数三所以只配置两个参数
+            //注意:this.msg.trim()去除文本内容中的空格
+            this.$http.post('api/postcomment/' + this.$route.params.id, {content:this.msg.trim()})
+            .then(function(result){
+                if(result.body.status === 0){
+                    let cmt = {
+                        user_name:'匿名用户',
+                        add_time: Date.now(),
+                        content:this.msg.trim()
+                    };
+                    //将发表后的评论直接加入到评论数据数组中
+                    this.comments.unshift(cmt);
+                    //评论成功后需要把textarea中的文本内容清空
+                    this.msg = "";
+                }
+            });
         }
     },
     props:["id"]
