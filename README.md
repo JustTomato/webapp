@@ -52,3 +52,7 @@
    2.把HomeContainer.vue中对应的轮播图组件内容剪切到swiper组件对应的位置上
    3.对HomeContainer.vue中对应的轮播图组件内容样式剪切到swiper组件对应的位置上
 
+## 产品详情页面
+
+## 购物车小球动画效果实现
+
