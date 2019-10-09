@@ -1,12 +1,8 @@
 <template>
   <div>
     <!-- 轮播图开始 -->
-    <mt-swipe :auto="4000">
-      <!-- 注意：在组件中使用v-for循环的话，一定要使用key -->
-      <mt-swipe-item v-for="item in lunbotuList" :key="item.id">
-        <img :src="item.img" alt />
-      </mt-swipe-item>
-    </mt-swipe>
+    <!-- 1.3 在对应的位置放置swiper组件并传入对应的值 -->
+    <swiper :lunbotuList="lunbotuList"></swiper>
     <!-- 轮播图结束 -->
     <!-- 九宫格开始 -->
     <ul class="mui-table-view mui-grid-view mui-grid-9">
@@ -53,6 +49,8 @@
 </template>
 <script>
 import { Toast } from "mint-ui";
+//1.1导入swiper组件
+import swiper from "../subcomponents/swiper.vue"
 export default {
   data() {
     return {
@@ -79,28 +77,14 @@ export default {
           }
         });
     }
+  },
+  //1.2 在methods后添加components
+  components:{
+    swiper
   }
 };
 </script>
 <style lang="scss" scoped>
-.mint-swipe {
-  height: 200px;
-  .mint-swipe-item {
-    &:nth-child(1) {
-      background-color: bisque;
-    }
-    &:nth-child(2) {
-      background-color: red;
-    }
-    &:nth-child(3) {
-      background-color: aqua;
-    }
-  }
-  img {
-    width: 100%;
-    height: 100%;
-  }
-}
 .mui-grid-view.mui-grid-9 {
     background-color: #ffffff;
     border: none;

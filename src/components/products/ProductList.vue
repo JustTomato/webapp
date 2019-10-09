@@ -1,6 +1,20 @@
 <template>
     <div class="product-list">
-        <div class="product-item" v-for="item in productslist" :key="item.id">
+        <!-- <router-link :to="'/home/productinfo/' + item.id" class="product-item" v-for="item in productslist" :key="item.id" tag="div">
+            <img :src="item.img_url" alt="">
+            <h1 class="title">{{item.title}}</h1>
+            <div class="info">
+                <p class="price">
+                    <span class="now">¥{{item.sell_price}}</span>
+                    <span class="old">¥{{item.market_price}}</span>
+                </p>
+                <p class="sell">
+                    <span>热卖中</span>
+                    <span>剩余：{{item.stock_quantity}}件</span>
+                </p>
+            </div>
+        </router-link> -->
+        <div class="product-item" v-for="item in productslist" :key="item.id" @click="goDetail(item.id)">
             <img :src="item.img_url" alt="">
             <h1 class="title">{{item.title}}</h1>
             <div class="info">
@@ -40,6 +54,16 @@ export default {
         getMore(){
             this.pageindex++;
             this.getProductList();
+        },
+        goDetail(id){
+            //1.第一种方式
+            //this.$router.push('/home/productinfo/' + id);
+            //2.第二种方式 传递对象方式
+            //this.$router.push({path:'/home/productinfo/'+id});
+            //3.第三种方式 传递命名路由
+            //this.$router.push({name:'productinfo',params:{id}});
+            this.$router.push({ name: "productinfo", params: { id } });
+            //4.第四种方式
         }
     }
 }
