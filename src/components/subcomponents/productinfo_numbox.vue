@@ -37,6 +37,7 @@ export default {
 
             //发现了一个bug
             //在点击+ -时 快速双击它后 再点击+ - 会导致数值成2增加 即 1变为3 3 变为5
+            //把js代码放在body后面即可解决这个bug
             mui(".mui-numbox").numbox().setOption('max',newVal);
         }
     }

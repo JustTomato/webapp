@@ -107,7 +107,17 @@ export default {
         },
         //定义小球添加到购物车
         addToShopCar(){
+            //console.log(this.id)
             this.ballFlag = !this.ballFlag;
+            //将它设计成{id:商品的id, count:商品的数量, price:商品的价格, selected:商品是否选中}}
+            let productinfo = {
+                id: this.id,
+                count: this.selectedCount,
+                price: this.productinfo.sell_price,
+                selected: true
+            };
+            //调用store中的mutations的方法来将购物车的商品数据共享到state中car上
+            this.$store.commit('addToCar',productinfo)
         },
         //定义红色小球动画效果
         beforeEnter(el){
