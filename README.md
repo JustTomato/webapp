@@ -56,3 +56,10 @@
 
 ## 购物车小球动画效果实现
 
+
+
+
+## 这是测试 项目被修改之后，在本地拉取最新的代码操作
+
+   ["@babel/plugin-transform-modules-commonjs", { "strictMode": false }]别
+   ["@babel/plugin-transform-modules-commonjs", { "strictMode": false }]
