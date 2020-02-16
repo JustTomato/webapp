@@ -60,7 +60,11 @@
 
 
 ## 这是测试 项目被修改之后，在本地拉取最新的代码操作
+<<<<<<< HEAD
 ## 我在本地也修改了项目说明文件，然准备上传远程仓库
+=======
+## 这是测试拉取有冲突的情况 别人也跟我修改了同一个文件。
+>>>>>>> ace2e5447dd0a3362ac79429e18074b14a649e2c
 
    ["@babel/plugin-transform-modules-commonjs", { "strictMode": false }]别
    ["@babel/plugin-transform-modules-commonjs", { "strictMode": false }]
