@@ -60,6 +60,7 @@
 
 
 ## 这是测试 项目被修改之后，在本地拉取最新的代码操作
+## 我在本地也修改了项目说明文件，然准备上传远程仓库
 
    ["@babel/plugin-transform-modules-commonjs", { "strictMode": false }]别
    ["@babel/plugin-transform-modules-commonjs", { "strictMode": false }]
