@@ -64,3 +64,6 @@
 
    ["@babel/plugin-transform-modules-commonjs", { "strictMode": false }]别
    ["@babel/plugin-transform-modules-commonjs", { "strictMode": false }]
+
+
+## 测试git 暂存修改的文件
